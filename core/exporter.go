@@ -203,11 +203,11 @@ func (e *Exporter) clear() {
 	e.sensision.Reset()
 }
 
-var haproxyType = map[string]string {
-    "0": "frontend",
-    "1": "backend",
-    "2": "server",
-    "3": "listen",
+var haproxyType = map[string]string{
+	"0": "frontend",
+	"1": "backend",
+	"2": "server",
+	"3": "listen",
 }
 
 // Scrape retrive HAProxy data
@@ -267,7 +267,7 @@ func (e *Exporter) Scrape() bool {
 					}
 				}
 
-				gts := now + e.metrics[fieldIdx] + "{" + e.labels + "pxname=" + *values[0] + ",svname=" + *values[1] + ",type=" + haproxyType[*values[32]]  + "} " + value + "\n"
+				gts := now + e.metrics[fieldIdx] + "{" + e.labels + "pxname=" + *values[0] + ",svname=" + *values[1] + ",type=" + haproxyType[*values[32]] + "} " + value + "\n"
 				e.sensision.WriteString(gts)
 			}
 		} else {
